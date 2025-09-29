@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جمعية الخلفاء الراشدين</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>جمعية الخلفاء الراشدين</h1>
+  <p>موقع الجمعية</p>
+</header>
+
+<nav>
+  <button onclick="showSection('projects')">الفيديوهات/الصور</button>
+  <button onclick="showSection('activities')">النشاطات</button>
+  <button onclick="showSection('blogs')">المدونة</button>
+</nav>
+
+<main>
+  <section id="projects" class="view active">
+    <h2>الفيديوهات/الصور للتبني</h2>
+    <div id="projectsList" class="grid"></div>
+  </section>
+
+  <section id="activities" class="view">
+    <h2>نشاطات الجمعية</h2>
+    <div id="activitiesList" class="grid"></div>
+  </section>
+
+  <section id="blogs" class="view">
+    <h2>مدونة الجمعية</h2>
+    <div id="blogsList" class="grid"></div>
+  </section>
+</main>
+
+<footer>
+  <p>للتواصل والتبرع: info@example.com</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة الأدمن - جمعية الخلفاء الراشدين</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>لوحة الأدمن</header>
+
+<div class="container">
+<h2>تسجيل الدخول</h2>
+<input type="email" id="adminEmail" placeholder="البريد الإلكتروني">
+<input type="password" id="adminPass" placeholder="كلمة المرور">
+<button onclick="loginAdmin()">تسجيل الدخول</button>
+
+<div id="adminPanel" style="display:none">
+
+<hr>
+<h2>إدارة المشاريع/الفيديوهات/الصور</h2>
+<input type="text" id="title" placeholder="عنوان المشروع">
+<input type="text" id="desc" placeholder="الوصف">
+<input type="text" id="amount" placeholder="المبلغ">
+<input type="file" id="fileInput">
+<button onclick="addProject()">إضافة مشروع</button>
+<div id="projectsList"></div>
+
+<hr>
+<h2>إدارة النشاطات</h2>
+<input type="text" id="activityTitle" placeholder="عنوان النشاط">
+<input type="text" id="activityDesc" placeholder="الوصف">
+<input type="file" id="activityFile">
+<button onclick="addActivity()">إضافة نشاط</button>
+<div id="activitiesList"></div>
+
+<hr>
+<h2>إدارة المدونات</h2>
+<input type="text" id="blogTitle" placeholder="عنوان المدونة">
+<textarea id="blogDesc" placeholder="المحتوى"></textarea>
+<button onclick="addBlog()">إضافة مدونة</button>
+<div id="blogsList"></div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
