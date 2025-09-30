@@ -2,8 +2,9 @@
 const token = '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';
 const owner = 'xisjfg1254';
 const repo = 'k';
-const path = 'data.json';
-
+const blogsPath = 'data/blogs.json';
+const projectsPath = 'data/projects.json';
+const activitiesPath = 'data/activities.json'
 // التبديل بين الأقسام
 function showSection(id){
   document.querySelectorAll('.view').forEach(s=>s.classList.remove('active'));
