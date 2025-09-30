@@ -5,39 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>لوحة الأدمن - جمعية الخلفاء الراشدين</title>
 <link rel="stylesheet" href="style.css">
+<style>
+body { margin:0; font-family: Arial,sans-serif; background: #f0f8f5; color: #033e3e; }
+header { background: linear-gradient(90deg,#3aafa9,#2b7a78); color:#fff; text-align:center; padding:1rem; font-size:1.5rem; font-weight:bold; }
+.container { padding:1rem; }
+input, textarea, select { width:100%; padding:0.5rem; margin:0.3rem 0; border-radius:5px; border:1px solid #ccc; box-sizing: border-box; }
+button { padding:0.6rem 1rem; border:none; border-radius:5px; background:#3aafa9; color:#fff; cursor:pointer; margin:0.3rem 0; }
+button.btn-danger { background:#d9534f; }
+.card { background:#fff; margin-bottom:1rem; padding:0.8rem; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.2); }
+.progress { width:100%; background:#e0e0e0; height:20px; border-radius:10px; margin:0.3rem 0; }
+.progress-bar { height:100%; width:0%; background:#3aafa9; border-radius:10px; text-align:center; color:#fff; line-height:20px; font-size:0.8rem; }
+@media(max-width:600px){ header { font-size:1.2rem; } button { font-size:0.9rem; } }
+</style>
 </head>
 <body>
-<header>لوحة الأدمن</header>
+
+<header>لوحة الأدمن - جمعية الخلفاء الراشدين</header>
 
 <div class="container">
 <h2>تسجيل الدخول</h2>
-<input type="email" id="adminEmail" placeholder="البريد الإلكتروني">
+<input type="text" id="adminUser" placeholder="اسم المستخدم">
 <input type="password" id="adminPass" placeholder="كلمة المرور">
-<button onclick="loginAdmin()">تسجيل الدخول</button>
+<button onclick="loginAdmin()">دخول</button>
 
-<div id="adminPanel" style="display:none">
+<div id="adminPanel" style="display:none;">
 
 <hr>
-<h2>إدارة المشاريع/الفيديوهات/الصور</h2>
-<input type="text" id="title" placeholder="عنوان المشروع">
-<input type="text" id="desc" placeholder="الوصف">
-<input type="text" id="amount" placeholder="المبلغ">
-<input type="file" id="fileInput">
-<button onclick="addProject()">إضافة مشروع</button>
+<h2>رفع مشروع (صورة/فيديو)</h2>
+<input type="text" id="projectTitle" placeholder="عنوان المشروع">
+<input type="text" id="projectDesc" placeholder="الوصف">
+<input type="text" id="projectAmount" placeholder="المبلغ">
+<input type="file" id="projectFile">
+<div class="progress"><div class="progress-bar" id="projectProgress">0%</div></div>
+<button onclick="uploadProject()">رفع المشروع</button>
 <div id="projectsList"></div>
 
 <hr>
-<h2>إدارة النشاطات</h2>
+<h2>إضافة نشاط</h2>
 <input type="text" id="activityTitle" placeholder="عنوان النشاط">
-<input type="text" id="activityDesc" placeholder="الوصف">
+<input type="text" id="activityDesc" placeholder="وصف النشاط">
 <input type="file" id="activityFile">
-<button onclick="addActivity()">إضافة نشاط</button>
+<div class="progress"><div class="progress-bar" id="activityProgress">0%</div></div>
+<button onclick="uploadActivity()">رفع النشاط</button>
 <div id="activitiesList"></div>
 
 <hr>
-<h2>إدارة المدونات</h2>
+<h2>إضافة مدونة</h2>
 <input type="text" id="blogTitle" placeholder="عنوان المدونة">
-<textarea id="blogDesc" placeholder="المحتوى"></textarea>
+<textarea id="blogDesc" placeholder="محتوى المدونة"></textarea>
 <button onclick="addBlog()">إضافة مدونة</button>
 <div id="blogsList"></div>
 
