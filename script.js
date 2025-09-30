@@ -1,7 +1,7 @@
 // إعداد GitHub
-const token = 'YOUR_PERSONAL_ACCESS_TOKEN';
-const owner = 'GITHUB_USERNAME';
-const repo = 'REPO_NAME';
+const token = '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';
+const owner = 'xisjfg1254';
+const repo = 'k';
 const path = 'data.json';
 
 // التبديل بين الأقسام
