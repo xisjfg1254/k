@@ -5,40 +5,127 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>جمعية الخلفاء الراشدين</title>
 <link rel="stylesheet" href="style.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f8f5;
+  color: #033e3e;
+}
+header {
+  background: linear-gradient(90deg,#3aafa9,#2b7a78);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  background: #2b7a78;
+  padding: 0.5rem;
+}
+nav button {
+  flex: 1 1 40%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background: #3aafa9;
+  cursor: pointer;
+  min-width: 120px;
+}
+main {
+  padding: 1rem;
+}
+section.view { display: none; }
+section.view.active { display: block; }
+.card {
+  background: #fff;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.card img, .card video { width: 100%; border-radius: 10px; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+@media(min-width:600px){ .grid { grid-template-columns: repeat(2,1fr); } }
+@media(min-width:900px){ .grid { grid-template-columns: repeat(3,1fr); } }
+footer {
+  text-align: center;
+  padding: 0.8rem;
+  background: #2b7a78;
+  color: #fff;
+  margin-top: 1rem;
+}
+a.admin-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #3aafa9;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+</style>
 </head>
 <body>
+
 <header>
   <h1>جمعية الخلفاء الراشدين</h1>
   <p>موقع الجمعية</p>
 </header>
 
 <nav>
-  <button onclick="showSection('projects')">الفيديوهات/الصور</button>
-  <button onclick="showSection('activities')">النشاطات</button>
-  <button onclick="showSection('blogs')">المدونة</button>
+  <button onclick="show('home')">الرئيسية</button>
+  <button onclick="show('projects')">المشاريع</button>
+  <button onclick="show('activities')">النشاطات</button>
+  <button onclick="show('blogs')">المدونة</button>
+  <button onclick="show('admin')">لوحة الأدمن</button>
 </nav>
 
 <main>
-  <section id="projects" class="view active">
-    <h2>الفيديوهات/الصور للتبني</h2>
+  <section id="home" class="view active">
+    <h2>مرحبا بكم في الموقع</h2>
+    <p>يمكنكم تصفح المشاريع والنشاطات والمدونات.</p>
+  </section>
+
+  <section id="projects" class="view">
+    <h2>المشاريع</h2>
     <div id="projectsList" class="grid"></div>
   </section>
 
   <section id="activities" class="view">
-    <h2>نشاطات الجمعية</h2>
+    <h2>النشاطات</h2>
     <div id="activitiesList" class="grid"></div>
   </section>
 
   <section id="blogs" class="view">
-    <h2>مدونة الجمعية</h2>
+    <h2>المدونات</h2>
     <div id="blogsList" class="grid"></div>
+  </section>
+
+  <section id="admin" class="view">
+    <h2>لوحة الأدمن</h2>
+    <a href="admin.html" class="admin-link">اذهب إلى لوحة الأدمن</a>
   </section>
 </main>
 
 <footer>
-  <p>للتواصل والتبرع: info@example.com</p>
+  <p>© 2025 جمعية الخلفاء الراشدين</p>
 </footer>
 
 <script src="script.js"></script>
+<script>
+function show(id){
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(id==='projects') loadProjects();
+  if(id==='activities') loadActivities();
+  if(id==='blogs') loadBlogs();
+}
+</script>
+
 </body>
 </html>
